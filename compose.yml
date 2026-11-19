@@ -46,6 +46,7 @@ services:
   runners:
     image: ghcr.io/n8n-io/runners:${N8N_VERSION}
     container_name: n8n-runners
+    restart: unless-stopped
     depends_on:
       - n8n
     env_file: .env
