@@ -2,6 +2,7 @@ volumes:
   n8n_data:
   ollama_data:
   postgres_data:
+  sandbox_docker:
   sandbox_tls:
 
 services:
@@ -112,6 +113,7 @@ services:
       SANDBOX_RUNNER_CONTROL_GRPC_TLS_KEY_FILE: /tls/runner/control-grpc-server.key
       SANDBOX_RUNNER_CONTROL_GRPC_TLS_CLIENT_CA_FILE: /tls/runner/ca.crt
     volumes:
+      - sandbox_docker:/var/lib/docker
       - sandbox_tls:/tls:ro
 
   searxng:
